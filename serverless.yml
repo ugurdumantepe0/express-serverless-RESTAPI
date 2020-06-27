@@ -1,0 +1,18 @@
+# serverless.yml
+
+service: bitaksiCase
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-2
+  environment:
+      dbURL: "mongodb+srv://challengeUser:WUMglwNBaydH8Yvu@challenge-xzwqd.mongodb.net/getir-case-study?retryWrites=true"
+
+functions:
+  app: 
+    handler: src/index.handler
+    events:
+      - http:
+          path: /getResults
+          method: post
